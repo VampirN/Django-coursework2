@@ -10,6 +10,10 @@ class Message(models.Model):
     creator = models.ForeignKey(User, verbose_name='Создатель сообщения', on_delete=models.SET_NULL,
                                 related_name="creator_message", null=True, blank=True)
 
+    class Meta:
+        verbose_name = 'Сообщение'
+        verbose_name_plural = 'Сообщения'
+
 
 
 class Client(models.Model):
