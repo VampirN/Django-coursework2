@@ -11,6 +11,7 @@ class Message(models.Model):
                                 related_name="creator_message", null=True, blank=True)
 
 
+
 class Client(models.Model):
     '''Модель клиент сервиса (получают рассылки)'''
     name = models.CharField(max_length=100, verbose_name='Ф.И.О')
@@ -18,7 +19,7 @@ class Client(models.Model):
     comment = models.CharField(max_length=200, verbose_name='Комментарий')
 
     def __str__(self):
-        return self.email
+        return f'{self.email}'
 
     class Meta:
         verbose_name = 'Клиент'
@@ -49,7 +50,7 @@ class Mailing(models.Model):
                                 null=True, blank=True)
 
     def __str__(self):
-        return self.status
+        return f'{self.status}'
 
     class Meta:
         verbose_name = 'Рассылка'
@@ -64,7 +65,7 @@ class MailingAttempt(models.Model):
     attempt_status = models.TextField(verbose_name='статус попытки(успешно/не успешно)')
 
     def __str__(self):
-        return self.attempt_status
+        return f'{self.attempt_status}'
 
     class Meta:
         verbose_name = 'Попытка рассылки'
